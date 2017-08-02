@@ -1,4 +1,4 @@
-var app = angular.module('HTrack', []);
+var app = angular.module('HTrak', []);
 
 app.controller('MainCtrl', [
 '$scope',
@@ -35,8 +35,12 @@ function($scope){
       currDate = $scope.getSingleItem($scope.posts, 'date', newDate);
   }
 
+$scope.currTab = 'profile';
+
   $scope.showTab = function(tabName){
     
+    $scope.currTab = tabName;
+
     var details = document.getElementById('details');
     var profile = document.getElementById('profile');
     var day = document.getElementById('day');

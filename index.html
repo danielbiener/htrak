@@ -1,21 +1,23 @@
 <html>
 <head>
-  <title>HTrack</title>
+  <title>HTrak</title>
   <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
   <script src="app.js"></script>
   <style> .glyphicon-thumbs-up { cursor:pointer } </style>
 </head>
 
-<body ng-app="HTrack" ng-controller="MainCtrl">
+<body ng-app="HTrak" ng-controller="MainCtrl">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
 
       <div class="page-header">
-        <h1>HTrack</h1>
+        <h1>HTrak  {{profile.email}}</h1>
 
         <h2>
-          {{profile.email}}
+          <a href="" ng-click="showTab('day')">day</a>
+          <a href="" ng-click="showTab('detail')">detail</a>
+          <a href="" ng-click="showTab('profile')">profile</a>
         </h2>
       </div>
 
@@ -50,7 +52,7 @@
       </div>
 -->
 
-<div id="day">
+<div id="day" ng-show="currTab == 'day'" ng-hide="currTab != 'day'" >
       <form ng-submit="addPost()"
         style="margin-top:30px;">
 
@@ -188,7 +190,7 @@
   </div>
 
 
-<div id = "profile">
+<div id = "profile" ng-show="currTab == 'profile'" ng-hide="currTab != 'profile'">
 
 <input type="text"
           class="form-control" 
@@ -251,7 +253,7 @@
 </div>
 
 
-<div id = "detail">
+<div id = "detail" ng-show="currTab == 'detail'" ng-hide="currTab != 'detail'">
 
 <input type="text"
           class="form-control" 
