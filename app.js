@@ -1,4 +1,4 @@
-var app = angular.module('HTrack', []);
+var app = angular.module('HTrak', []);
 
 app.controller('MainCtrl', [
 '$scope',
@@ -15,11 +15,11 @@ function($scope){
   $scope.profile = profile;
 
   $scope.posts = [
-      {title: 'post 1', upvotes: 5, date: '1/1/2017', weight: 200, bp: '120/80', hr: 50, bs: 120 },
-      {title: 'post 2', upvotes: 2, date: '1/2/2017', weight: 201, bp: '120/80', hr: 50, bs: 121 },
-      {title: 'post 3', upvotes: 15, date: '1/3/2017', weight: 202, bp: '120/80', hr: 50, bs: 122 },
-      {title: 'post 4', upvotes: 9, date: '1/4/2017', weight: 203, bp: '120/80', hr: 50, bs: 123 },
-      {title: 'post 5', upvotes: 4, date: '1/5/2017', weight: 204, bp: '120/80', hr: 50, bs: 124 }
+      {$title: 'post 1', $upvotes: 5, date: '1/1/2017', weight: 200, bp: '120/80', hr: 50, bs: 120 },
+      {$title: 'post 2', $upvotes: 2, date: '1/2/2017', weight: 201, bp: '120/80', hr: 50, bs: 121 },
+      {$title: 'post 3', $upvotes: 15, date: '1/3/2017', weight: 202, bp: '120/80', hr: 50, bs: 122 },
+      {$title: 'post 4', $upvotes: 9, date: '1/4/2017', weight: 203, bp: '120/80', hr: 50, bs: 123 },
+      {$title: 'post 5', $upvotes: 4, date: '1/5/2017', weight: 204, bp: '120/80', hr: 50, bs: 124 }
       ];
 
   $scope.currDate = $scope.posts[0];
@@ -35,8 +35,12 @@ function($scope){
       currDate = $scope.getSingleItem($scope.posts, 'date', newDate);
   }
 
+$scope.currTab = 'profile';
+
   $scope.showTab = function(tabName){
     
+    $scope.currTab = tabName;
+
     var details = document.getElementById('details');
     var profile = document.getElementById('profile');
     var day = document.getElementById('day');
