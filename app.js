@@ -4,7 +4,7 @@ app.controller('MainCtrl', [
 '$scope',
 function($scope){
   
-  zzz
+  
   var metrics = [
     {metric: 'weight', label: 'Weight', goal: 150, unit: 'lbs', position: 0},
     {metric: 'bp', label: 'BP', goal: '120/80', unit: 'mmHg', position: 1},

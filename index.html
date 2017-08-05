@@ -21,6 +21,12 @@
         </h2>
       </div>
 
+
+
+
+
+
+
 <!--
       <div ng-repeat="post in posts | orderBy:'date' ">
         
@@ -52,12 +58,266 @@
       </div>
 -->
 
-zzz
 <div id="day2" ng-show="currTab == 'day2'" ng-hide="currTab != 'day2'" >
       <form ng-submit="addPost()"
         style="margin-top:30px;">
 
         <table style="width:100%; border-width:8px 8px 8px 8px">
+          <tr style="vertical-align:middle">
+            <td style="text-align:center; vertical-align:middle">
+              <button type="submit" class="btn btn-primary" style="display:inline; "><<</button>
+            </td>
+            <td style="text-align:center">
+              <button type="submit" class="btn btn-primary" style="text-align:center; vertical-align:middle" >>></button>
+            </td>
+            
+            <td  class="form-group" style="text-align:center; vertical-align:middle; ">
+                    
+                <input type="text"       
+                  
+                  style="text-align:center; vertical-align:middle"
+                  placeholder="Date"
+                  ng-model="currDate.date" >
+                </input>
+              
+            </td>
+
+            <td  class="form-group" style="text-align:center">
+              <button type="submit" class="btn btn-primary" style="text-align:center; vertical-align:middle" >Today</button>
+            </td>
+          </tr>
+        </table>
+        
+        <table style="width:100%; ">
+          <tr>
+            <td>
+                header
+            </td>
+            <td>
+                &nbsp;
+            </td>
+
+            <td>
+                <span style="display:inline">Trend </span>
+            </td>
+            <td>
+                <span style="display:inline">Goal </span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+                <span  class="form-group" style="display:inline">Weight </span>
+            </td>
+            <td  class="form-group">
+                <input type="text"
+                  class="form-control" style="display:inline"
+                  placeholder="Weight"
+                  ng-model="currDate.weight"
+                  ng-click="inputShowUnit(this);"></input>
+            </td>
+
+            <td  class="form-group">
+                <span style="display:inline">Trend </span>
+            </td>
+            <td class="form-group">
+              <span  style="display:inline">{{profile.metrics[0].goal}} </span>     
+            </td>  
+          </tr>
+
+          <tr>
+            <td>
+                <span style="display:inline">BP </span>
+            </td>
+
+            <td class="form-group">            
+                <input type="text"
+                  class="form-control"
+                  placeholder="BP"
+                  ng-model="currDate.bp"></input>       
+            </td> 
+
+            <td>
+                <span style="display:inline">Trend</span>
+            </td>
+            <td>
+                <span  style="display:inline">{{profile.metrics[1].goal}} </span>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>
+                <span style="display:inline">HR</span>
+            </td>
+
+            <td class="form-group">    
+        
+              <input type="text"
+                class="form-control"
+                placeholder="HR"
+                ng-model="currDate.hr"></input>
+            </td>
+
+            <td>
+                <span style="display:inline">Trend</span>
+            </td>
+            <td>
+                <span  style="display:inline">{{profile.metrics[2].goal}} </span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+                <span style="display:inline">BS</span>
+            </td>
+
+            <td class="form-group">  
+              <input type="text"
+                class="form-control"
+                placeholder="BS"
+                ng-model="currDate.bs"></input>
+            </td>
+              
+            <td>
+                <span style="display:inline">Trend</span>
+            </td>
+            <td>
+                <span style="display:inline">Goal</span>
+            </td>
+          </tr>
+  </table>
+
+  <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+
+
+
+<div id="day" ng-show="currTab == 'day'" ng-hide="currTab != 'day'" >
+  <table style="width:100%; border-width:8px 8px 8px 8px">
+
+  <tr ng-repeat="(property, value) in currDate" class="form-group" style="text-align:center">
+            
+    <td>
+      {{property}}
+    </td>
+
+    <td class="form-group">  
+      <input type="text"
+        class="form-control"
+        placeholder="{{property}}""
+        ng-model="currDate[property]"></input>
+
+    </td>
+
+
+  </tr>
+
+  </table>
+</div>
+
+
+<div id = "profile" ng-show="currTab == 'profile'" ng-hide="currTab != 'profile'">
+
+<input type="text"
+          class="form-control" 
+          style="display:inline; text-align:center; "
+          placeholder="Date"
+          ng-model="profile.email" 
+          ng-click="inputShowUnit(this);" >
+        </input>
+
+        
+<table  >
+  <thead >
+      <td>Name
+      </td>
+      <td>Label
+      </td>     
+      <td>Goal
+      </td>     
+      <td>Unit
+      </td>     
+      <td>Position
+      </td>
+  </thead>
+  
+  
+  <tr ng-repeat="metric in profile.metrics | orderBy:'position' ">
+    <td>
+          <input type="text"
+                class="form-control"
+                placeholder="HR" style="display:inline"
+                ng-model="metric.metric"></input>
+    </td>
+    <td>
+          <input type="text"
+                class="form-control"
+                placeholder="HR" style="display:inline"
+                ng-model="metric.label"></input>
+    </td>
+    <td>
+          <input type="text"
+                class="form-control"
+                placeholder="HR" style="display:inline"
+                ng-model="metric.goal"></input>
+    </td>
+    <td>
+          <input type="text"
+                class="form-control"
+                placeholder="HR"style="display:inline"
+                ng-model="metric.unit"></input>
+    </td>
+
+    <td>
+          <input type="text"
+                class="form-control"
+                placeholder="HR"style="display:inline"
+                ng-model="metric.position"></input>
+    </td>
+  </tr>
+</table>
+</div>
+
+
+<div id = "detail" ng-show="currTab == 'detail'" ng-hide="currTab != 'detail'">
+
+<input type="text"
+          class="form-control" 
+          style="display:inline; text-align: center; "
+          placeholder="Date"
+          ng-model="profile.email" >
+        </input>
+
+
+        
+
+
+<table style="width: 75%" >
+  <thead >
+      <td>Date
+      </td>
+      <td>
+        <select class="form-control">
+          <option ng-repeat="label in profile.metrics" value="{{label}}">{{label.label}}</option>
+          <option value="">Select Metric</option>
+        </select>
+      </td>     
+  </thead>
+  
+  <tr ng-repeat="post in posts | orderBy:'date' ">
+      <td>
+        <span>{{post.date}}</span>
+      </td>
+      <td>
+        <span >{{post[selectedMetric]}}</span>
+      </td>
+  </tr>
+
+</table>
+</div>
+
+</body>
+</html>style="width:100%; border-width:8px 8px 8px 8px">
           <tr style="vertical-align:middle">
             <td style="text-align:center; vertical-align:middle">
               <button type="submit" class="btn btn-primary" style="display:inline; "><<</button>
@@ -212,7 +472,6 @@ zzz
 
   </table>
 </div>
-
 
 <div id = "profile" ng-show="currTab == 'profile'" ng-hide="currTab != 'profile'">
 
