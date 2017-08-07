@@ -23,10 +23,6 @@
 
 
 
-
-
-
-
 <!--
       <div ng-repeat="post in posts | orderBy:'date' ">
         
@@ -62,31 +58,6 @@
       <form ng-submit="addPost()"
         style="margin-top:30px;">
 
-        <table style="width:100%; border-width:8px 8px 8px 8px">
-          <tr style="vertical-align:middle">
-            <td style="text-align:center; vertical-align:middle">
-              <button type="submit" class="btn btn-primary" style="display:inline; "><<</button>
-            </td>
-            <td style="text-align:center">
-              <button type="submit" class="btn btn-primary" style="text-align:center; vertical-align:middle" >>></button>
-            </td>
-            
-            <td  class="form-group" style="text-align:center; vertical-align:middle; ">
-                    
-                <input type="text"       
-                  
-                  style="text-align:center; vertical-align:middle"
-                  placeholder="Date"
-                  ng-model="currDate.date" >
-                </input>
-              
-            </td>
-
-            <td  class="form-group" style="text-align:center">
-              <button type="submit" class="btn btn-primary" style="text-align:center; vertical-align:middle" >Today</button>
-            </td>
-          </tr>
-        </table>
         
         <table style="width:100%; ">
           <tr>
@@ -192,28 +163,8 @@
 
 
 
-<div id="day" ng-show="currTab == 'day'" ng-hide="currTab != 'day'" >
-  <table style="width:100%; border-width:8px 8px 8px 8px">
-
-  <tr ng-repeat="(property, value) in currDate" class="form-group" style="text-align:center">
-            
-    <td>
-      {{property}}
-    </td>
-
-    <td class="form-group">  
-      <input type="text"
-        class="form-control"
-        placeholder="{{property}}""
-        ng-model="currDate[property]"></input>
-
-    </td>
 
 
-  </tr>
-
-  </table>
-</div>
 
 
 <div id = "profile" ng-show="currTab == 'profile'" ng-hide="currTab != 'profile'">
@@ -451,6 +402,37 @@
 
 
 <div id="day" ng-show="currTab == 'day'" ng-hide="currTab != 'day'" >
+
+
+        <table style="width:100%; border-width:8px 8px 8px 8px">
+          <tr style="vertical-align:middle">
+            <td style="text-align:center; vertical-align:middle">
+              <button type="submit" class="btn btn-primary" style="display:inline; "><<</button>
+            </td>
+            <td style="text-align:center">
+              <button type="submit" class="btn btn-primary" style="text-align:center; vertical-align:middle" >>></button>
+            </td>
+            
+            <td  class="form-group" style="text-align:center; vertical-align:middle; ">
+                    
+                <input type="text"       
+                  
+                  style="text-align:center; vertical-align:middle"
+                  placeholder="Date"
+                  ng-model="currDate.date" >
+                </input>
+              
+            </td>
+
+            <td  class="form-group" style="text-align:center">
+              <button type="submit" class="btn btn-primary" style="text-align:center; vertical-align:middle" >Today</button>
+            </td>
+          </tr>
+        </table>
+
+
+
+
   <table style="width:100%; border-width:8px 8px 8px 8px">
 
   <tr ng-repeat="(property, value) in currDate" class="form-group" style="text-align:center">
