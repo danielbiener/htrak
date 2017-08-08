@@ -1,0 +1,59 @@
+
+  <input type="text"
+    class="form-control" 
+    style="display:inline; text-align:center; "
+    placeholder="Date"
+    ng-model="profile.email" 
+    ng-click="inputShowUnit(this);" >
+  </input>
+
+        
+  <table  >
+    <thead >
+        <td>Name
+        </td>
+        <td>Label
+        </td>     
+        <td>Goal
+        </td>     
+        <td>Unit
+        </td>     
+        <td>Position
+        </td>
+    </thead>
+  
+  
+    <tr ng-repeat="metric in profile.metrics | orderBy:'position' ">
+      <td>
+            <input type="text"
+                  class="form-control"
+                  placeholder="HR" style="display:inline"
+                  ng-model="metric.metric"></input>
+      </td>
+      <td>
+            <input type="text"
+                  class="form-control"
+                  placeholder="HR" style="display:inline"
+                  ng-model="metric.label"></input>
+      </td>
+      <td>
+            <input type="text"
+                  class="form-control"
+                  placeholder="HR" style="display:inline"
+                  ng-model="metric.goal"></input>
+      </td>
+      <td>
+            <input type="text"
+                  class="form-control"
+                  placeholder="HR"style="display:inline"
+                  ng-model="metric.unit"></input>
+      </td>
+
+      <td>
+            <input type="text"
+                  class="form-control"
+                  placeholder="HR"style="display:inline"
+                  ng-model="metric.position"></input>
+      </td>
+    </tr>
+  </table>

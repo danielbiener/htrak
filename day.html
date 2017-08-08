@@ -1,0 +1,40 @@
+  <table style="width:100%; border-width:8px 8px 8px 8px">
+    <tr style="vertical-align:middle">
+      <td style="text-align:center; vertical-align:middle">
+        <button type="submit" class="btn btn-primary" style="display:inline; "><<</button>
+      </td>
+      <td style="text-align:center">
+        <button type="submit" class="btn btn-primary" style="text-align:center; vertical-align:middle" >>></button>
+      </td>
+      
+      <td  class="form-group" style="text-align:center; vertical-align:middle; ">
+              
+          <input type="text"       
+            style="text-align:center; vertical-align:middle"
+            
+            ng-model="currDate.date" >
+          </input>   
+      </td>
+
+      <td  class="form-group" style="text-align:center">
+        <button type="submit" class="btn btn-primary" style="text-align:center; vertical-align:middle" >Today</button>
+      </td>
+    </tr>
+  </table>
+
+  <table style="width:100%; border-width:8px 8px 8px 8px">
+
+    <tr ng-repeat="(property, value) in currDate" class="form-group" style="text-align:center">
+              
+      <td>
+        {{property}}
+      </td>
+
+      <td class="form-group">  
+        <input type="text"
+          class="form-control"
+          placeholder="{{property}}""
+          ng-model="currDate[property]"></input>
+      </td>
+    </tr>
+  </table>

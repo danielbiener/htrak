@@ -25,145 +25,15 @@
   </div>
 
 
-<div id="day" ng-show="currTab == 'day'" ng-hide="currTab != 'day'" >
-
-  <table style="width:100%; border-width:8px 8px 8px 8px">
-    <tr style="vertical-align:middle">
-      <td style="text-align:center; vertical-align:middle">
-        <button type="submit" class="btn btn-primary" style="display:inline; "><<</button>
-      </td>
-      <td style="text-align:center">
-        <button type="submit" class="btn btn-primary" style="text-align:center; vertical-align:middle" >>></button>
-      </td>
-      
-      <td  class="form-group" style="text-align:center; vertical-align:middle; ">
-              
-          <input type="text"       
-            style="text-align:center; vertical-align:middle"
-            
-            ng-model="currDate.date" >
-          </input>   
-      </td>
-
-      <td  class="form-group" style="text-align:center">
-        <button type="submit" class="btn btn-primary" style="text-align:center; vertical-align:middle" >Today</button>
-      </td>
-    </tr>
-  </table>
-
-  <table style="width:100%; border-width:8px 8px 8px 8px">
-
-    <tr ng-repeat="(property, value) in currDate" class="form-group" style="text-align:center">
-              
-      <td>
-        {{property}}
-      </td>
-
-      <td class="form-group">  
-        <input type="text"
-          class="form-control"
-          placeholder="{{property}}""
-          ng-model="currDate[property]"></input>
-      </td>
-    </tr>
-  </table>
+<div id="day" ng-include="'day.html'" ng-show="currTab == 'day'" ng-hide="currTab != 'day'" >
 </div>
      
 
-<div id = "profile" ng-show="currTab == 'profile'" ng-hide="currTab != 'profile'">
-
-  <input type="text"
-    class="form-control" 
-    style="display:inline; text-align:center; "
-    placeholder="Date"
-    ng-model="profile.email" 
-    ng-click="inputShowUnit(this);" >
-  </input>
-
-        
-  <table  >
-    <thead >
-        <td>Name
-        </td>
-        <td>Label
-        </td>     
-        <td>Goal
-        </td>     
-        <td>Unit
-        </td>     
-        <td>Position
-        </td>
-    </thead>
-  
-  
-    <tr ng-repeat="metric in profile.metrics | orderBy:'position' ">
-      <td>
-            <input type="text"
-                  class="form-control"
-                  placeholder="HR" style="display:inline"
-                  ng-model="metric.metric"></input>
-      </td>
-      <td>
-            <input type="text"
-                  class="form-control"
-                  placeholder="HR" style="display:inline"
-                  ng-model="metric.label"></input>
-      </td>
-      <td>
-            <input type="text"
-                  class="form-control"
-                  placeholder="HR" style="display:inline"
-                  ng-model="metric.goal"></input>
-      </td>
-      <td>
-            <input type="text"
-                  class="form-control"
-                  placeholder="HR"style="display:inline"
-                  ng-model="metric.unit"></input>
-      </td>
-
-      <td>
-            <input type="text"
-                  class="form-control"
-                  placeholder="HR"style="display:inline"
-                  ng-model="metric.position"></input>
-      </td>
-    </tr>
-  </table>
+<div id = "profile" ng-include="'profile.html'" ng-show="currTab == 'profile'" ng-hide="currTab != 'profile'">
 </div>
 
 
-<div id = "detail" ng-show="currTab == 'detail'" ng-hide="currTab != 'detail'">
-
-  <input type="text"
-            class="form-control" 
-            style="display:inline; text-align: center; "
-            placeholder="Date"
-            ng-model="profile.email" >
-          </input>
-
-  <table style="width: 75%" >
-    <thead >
-        <td>Date
-        </td>
-        <td>
-          <select class="form-control">
-            <option ng-repeat="label in profile.metrics" value="{{label}}">{{label.label}}</option>
-            <option value="">Select Metric</option>
-          </select>
-        </td>     
-    </thead>
-  
-    <tr ng-repeat="post in posts | orderBy:'date' ">
-        <td>
-          <span>{{post.date}}</span>
-        </td>
-        <td>
-          <span >{{post[selectedMetric]}}</span>
-        </td>
-    </tr>
-
-  </table>
+<div id = "detail" ng-include="'detail.html'" ng-show="currTab == 'detail'" ng-hide="currTab != 'detail'">
 </div>
 
 </body>

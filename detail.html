@@ -1,0 +1,29 @@
+  <input type="text"
+            class="form-control" 
+            style="display:inline; text-align: center; "
+            placeholder="Date"
+            ng-model="profile.email" >
+          </input>
+
+  <table style="width: 75%" >
+    <thead >
+        <td>Date
+        </td>
+        <td>
+          <select class="form-control">
+            <option ng-repeat="label in profile.metrics" value="{{label}}">{{label.label}}</option>
+            <option value="">Select Metric</option>
+          </select>
+        </td>     
+    </thead>
+  
+    <tr ng-repeat="post in posts | orderBy:'date' ">
+        <td>
+          <span>{{post.date}}</span>
+        </td>
+        <td>
+          <span >{{post[selectedMetric]}}</span>
+        </td>
+    </tr>
+
+  </table>
