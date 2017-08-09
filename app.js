@@ -24,6 +24,40 @@ function($scope){
       ];
 
   $scope.currDate = $scope.posts[0];
+
+  var currDateDisplay;
+  currDateDisplay = {};
+
+/*  
+  for (var prop in p) {
+    if (!p.hasOwnProperty(prop)) {
+        //The current property is not a direct property of p
+        continue;
+    }
+    //Do your logic with the property here
+  }
+*/
+
+
+  var keys = Object.keys($scope.currDate);
+
+  var    len = keys.length,
+      i = 0,
+      prop,
+      value;
+  while (i < len) {
+      prop = keys[i];
+      value = $scope.currDate[prop];
+      i += 1;
+
+      if (prop.substring(0,1) != '$')
+      {
+      currDateDisplay[prop] = value + 'asd' ;
+      }
+  }
+  $scope.currDateDisplay = currDateDisplay;
+
+
   $scope.selectedMetric = "weight";
 
   $scope.buildDisplayValue = function(metricName){

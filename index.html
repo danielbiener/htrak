@@ -9,29 +9,25 @@
 
 <body ng-app="HTrak" ng-controller="MainCtrl">
 
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+  <div >
+    
 
-      <div class="page-header">
-        <h1>HTrak  {{profile.email}}</h1>
-
-        <h2>
+      <div >
+        <h1>HTrak  {{profile.email}}
           <a href="" ng-click="showTab('day')">day</a>
           <a href="" ng-click="showTab('detail')">detail</a>
           <a href="" ng-click="showTab('profile')">profile</a>
-        </h2>
+        </h1>
       </div>
-    </div>
+   
   </div>
 
 
 <div id="day" ng-include="'day.html'" ng-show="currTab == 'day'" ng-hide="currTab != 'day'" >
 </div>
-     
-
+    
 <div id = "profile" ng-include="'profile.html'" ng-show="currTab == 'profile'" ng-hide="currTab != 'profile'">
 </div>
-
 
 <div id = "detail" ng-include="'detail.html'" ng-show="currTab == 'detail'" ng-hide="currTab != 'detail'">
 </div>
